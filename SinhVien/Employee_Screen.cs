@@ -118,5 +118,21 @@ namespace SinhVien
                 }
             }
         }
+        public void loadGrid()
+        {
+            _command = _connection.CreateCommand();
+            _command.CommandText = "select * from ThongTinSinhVien where TenSV like '%" + txt_nhapten.Text + "%'";
+            adaper.SelectCommand = _command;
+            table.Clear();
+
+            adaper.Fill(table);
+            dataGridView1.DataSource = table;
+
+        }
+
+        private void btn_timKiem_Click(object sender, EventArgs e)
+        {
+            loadGrid();
+        }
     }
 }
