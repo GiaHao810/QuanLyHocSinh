@@ -9,13 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+//Min da them thu vien
+using System.IO;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Data.SqlClient;
+using OfficeOpenXml.Core.ExcelPackage;
+
 namespace SinhVien
 {
     public partial class Employee_Screen : Form
     {
         SqlConnection _connection;
         SqlCommand _command;
-        string str = "Data Source=LAPTOP-SKAKNRQ2;Initial Catalog=QLSV;Integrated Security=True";
+        string str = "Data Source=MSI;Initial Catalog=QLSV;Integrated Security=True";
         SqlDataAdapter adaper = new SqlDataAdapter();
 
         DataTable table = new DataTable();
@@ -58,13 +65,82 @@ namespace SinhVien
 
         private void label_Add_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label_Delete_Click(object sender, EventArgs e)
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "DELETE MASV FROM ThongTinSinhVien WHERE " + 
+            _command.CommandText = "DELETE MASV FROM ThongTinSinhVien WHERE ";
+        }
+
+        //code of Min
+        private void ExportExel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+
+            //set tieu de cot
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+
+            }
+            // set dong
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    application.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+
+                }
+
+            }
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+        }
+        private void label_Export_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx | Excel (*.xlsx) |*.xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ExportExel(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xuất file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+
+        public void loadGrid()
+        {
+            _command = _connection.CreateCommand();
+            _command.CommandText = "select * from ThongTinSinhVien where TenSV like '%" + txt_nhapten.Text + "%'";
+            adaper.SelectCommand = _command;
+            table.Clear();
+
+            adaper.Fill(table);
+            dataGridView1.DataSource = table;
+
+        }
+
+        private void btn_timKiem_Click(object sender, EventArgs e)
+        {
+            loadGrid();
+        }
+
+        private void btn_hienthiSV_Click(object sender, EventArgs e)
+        {
+            loaddata();
         }
     }
 }
