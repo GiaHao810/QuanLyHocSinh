@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 //Min da them thu vien
 using System.IO;
@@ -22,7 +21,7 @@ namespace SinhVien
     {
         SqlConnection _connection;
         SqlCommand _command;
-        string str = "Data Source=MSI;Initial Catalog=QLSV;Integrated Security=True";
+        string str = "Data Source=LAPTOP-SKAKNRQ2;Integrated Security=True;Initial Catalog=QLSV";
         SqlDataAdapter adaper = new SqlDataAdapter();
 
         DataTable table = new DataTable();
@@ -30,8 +29,8 @@ namespace SinhVien
         void loaddata()
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "select * from ThongTinSinhVien ";
-            //_command.ExecuteNonQuery();
+            _command.CommandText = "select * from ThongTinSinhVien";
+            _command.ExecuteNonQuery();
             adaper.SelectCommand = _command;
             table.Clear();
 
@@ -71,7 +70,12 @@ namespace SinhVien
         private void label_Delete_Click(object sender, EventArgs e)
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "DELETE MASV FROM ThongTinSinhVien WHERE ";
+            _command.CommandText = "DELETE FROM ThongTinSinhVien WHERE MaSV = '" + dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString() + "'";
+            adaper.SelectCommand = _command;
+            table.Clear();
+
+            adaper.Fill(table);
+            dataGridView1.DataSource = table;
         }
 
         //code of Min
@@ -100,26 +104,6 @@ namespace SinhVien
             application.ActiveWorkbook.SaveCopyAs(path);
             application.ActiveWorkbook.Saved = true;
         }
-        private void label_Export_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Export Excel";
-            saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx | Excel (*.xlsx) |*.xlsx";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    ExportExel(saveFileDialog.FileName);
-                    MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Xuất file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-
 
         public void loadGrid()
         {
@@ -141,6 +125,31 @@ namespace SinhVien
         private void btn_hienthiSV_Click(object sender, EventArgs e)
         {
             loaddata();
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx | Excel (*.xlsx) |*.xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ExportExel(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xuất file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

@@ -26,7 +26,14 @@ namespace SinhVien
             //..................................................
 
             //Kiểm tra role để chọn màn hình 
-            if(boxLoai.SelectedItem.ToString() == "")
+
+            Employee_Screen controlSV_Screen = new Employee_Screen();
+
+            controlSV_Screen.Show();
+
+            Student_Screen student_Screen = new Student_Screen();
+            /*
+            if (boxLoai.SelectedItem.ToString() == "")
             {
 
                 MessageBox.Show("Vui lòng chọn chức vụ!!");
@@ -34,18 +41,15 @@ namespace SinhVien
             } else if(boxLoai.SelectedItem.ToString() == "NHÂN VIÊN")
             {
 
-                Employee_Screen controlSV_Screen = new Employee_Screen();
-
-                controlSV_Screen.Show();
+                
 
             } else if(boxLoai.SelectedItem.ToString() == "HỌC SINH")
             {
 
-                Student_Screen student_Screen = new Student_Screen();
-
-                student_Screen.Show();
+                
 
             }
+            */
         }
 
         private void button_register_Click(object sender, EventArgs e)
