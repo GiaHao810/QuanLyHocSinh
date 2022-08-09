@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             this.label_so.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_so.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_so.ForeColor = System.Drawing.Color.Red;
-            this.label_so.Location = new System.Drawing.Point(15, 434);
+            this.label_so.Location = new System.Drawing.Point(15, 397);
             this.label_so.Name = "label_so";
             this.label_so.Size = new System.Drawing.Size(130, 43);
             this.label_so.TabIndex = 15;
@@ -65,7 +66,7 @@
             this.label_Export.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_Export.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Export.ForeColor = System.Drawing.Color.Red;
-            this.label_Export.Location = new System.Drawing.Point(15, 376);
+            this.label_Export.Location = new System.Drawing.Point(15, 289);
             this.label_Export.Name = "label_Export";
             this.label_Export.Size = new System.Drawing.Size(130, 43);
             this.label_Export.TabIndex = 14;
@@ -78,7 +79,7 @@
             this.label_search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_search.ForeColor = System.Drawing.Color.Red;
-            this.label_search.Location = new System.Drawing.Point(15, 261);
+            this.label_search.Location = new System.Drawing.Point(15, 185);
             this.label_search.Name = "label_search";
             this.label_search.Size = new System.Drawing.Size(130, 43);
             this.label_search.TabIndex = 13;
@@ -91,7 +92,7 @@
             this.label_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Edit.ForeColor = System.Drawing.Color.Red;
-            this.label_Edit.Location = new System.Drawing.Point(15, 199);
+            this.label_Edit.Location = new System.Drawing.Point(15, 132);
             this.label_Edit.Name = "label_Edit";
             this.label_Edit.Size = new System.Drawing.Size(130, 43);
             this.label_Edit.TabIndex = 12;
@@ -104,7 +105,7 @@
             this.label_Import.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_Import.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Import.ForeColor = System.Drawing.Color.Red;
-            this.label_Import.Location = new System.Drawing.Point(15, 318);
+            this.label_Import.Location = new System.Drawing.Point(15, 237);
             this.label_Import.Name = "label_Import";
             this.label_Import.Size = new System.Drawing.Size(130, 43);
             this.label_Import.TabIndex = 11;
@@ -117,7 +118,7 @@
             this.label_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Delete.ForeColor = System.Drawing.Color.Red;
-            this.label_Delete.Location = new System.Drawing.Point(15, 142);
+            this.label_Delete.Location = new System.Drawing.Point(15, 77);
             this.label_Delete.Name = "label_Delete";
             this.label_Delete.Size = new System.Drawing.Size(130, 43);
             this.label_Delete.TabIndex = 10;
@@ -131,7 +132,7 @@
             this.label_Add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Add.ForeColor = System.Drawing.Color.Red;
-            this.label_Add.Location = new System.Drawing.Point(15, 86);
+            this.label_Add.Location = new System.Drawing.Point(15, 25);
             this.label_Add.Name = "label_Add";
             this.label_Add.Size = new System.Drawing.Size(130, 43);
             this.label_Add.TabIndex = 9;
@@ -178,10 +179,23 @@
             this.label2.BackColor = System.Drawing.Color.Yellow;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(4, 34);
+            this.label2.Location = new System.Drawing.Point(4, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 453);
+            this.label2.Size = new System.Drawing.Size(155, 478);
             this.label2.TabIndex = 18;
+            // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(15, 342);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 43);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Report";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Employee_Screen
             // 
@@ -189,6 +203,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(878, 496);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_so);
@@ -223,5 +238,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
