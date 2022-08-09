@@ -70,7 +70,7 @@ namespace SinhVien
         private void label_Delete_Click(object sender, EventArgs e)
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "DELETE MASV FROM ThongTinSinhVien WHERE " +
+            _command.CommandText = "DELETE MASV FROM ThongTinSinhVien WHERE ";
         }
 
         //code of Min
