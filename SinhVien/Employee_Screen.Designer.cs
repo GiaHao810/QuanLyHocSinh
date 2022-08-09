@@ -72,6 +72,7 @@
             this.label_Export.TabIndex = 14;
             this.label_Export.Text = "Export";
             this.label_Export.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Export.Click += new System.EventHandler(this.label_Export_Click);
             // 
             // label_search
             // 
