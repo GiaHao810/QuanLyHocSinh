@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 //Min da them thu vien
+using System.IO;
 using OfficeOpenXml;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Data.SqlClient;
@@ -21,7 +22,7 @@ namespace SinhVien
     {
         SqlConnection _connection;
         SqlCommand _command;
-        string str = "Data Source=LAPTOP-SKAKNRQ2;Initial Catalog=QLSV;Integrated Security=True";
+        string str = "Data Source=MSI;Initial Catalog=QLSV;Integrated Security=True";
         SqlDataAdapter adaper = new SqlDataAdapter();
 
         DataTable table = new DataTable();
@@ -110,14 +111,16 @@ namespace SinhVien
                 try
                 {
                     ExportExel(saveFileDialog.FileName);
-                    MessageBox.Show("Xuất file thành công!");
+                    MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xuất file thất bại!" + ex.Message);
+                    MessageBox.Show("Xuất file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
+
+
         public void loadGrid()
         {
             _command = _connection.CreateCommand();
@@ -133,6 +136,11 @@ namespace SinhVien
         private void btn_timKiem_Click(object sender, EventArgs e)
         {
             loadGrid();
+        }
+
+        private void btn_hienthiSV_Click(object sender, EventArgs e)
+        {
+            loaddata();
         }
     }
 }

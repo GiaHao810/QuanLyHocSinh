@@ -45,6 +45,7 @@
             this.btn_timKiem = new System.Windows.Forms.Button();
             this.txt_nhapten = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_hienthiSV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -217,12 +218,24 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Nhập tên:";
             // 
+            // btn_hienthiSV
+            // 
+            this.btn_hienthiSV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_hienthiSV.Location = new System.Drawing.Point(183, 173);
+            this.btn_hienthiSV.Name = "btn_hienthiSV";
+            this.btn_hienthiSV.Size = new System.Drawing.Size(134, 25);
+            this.btn_hienthiSV.TabIndex = 23;
+            this.btn_hienthiSV.Text = "Hiển thị tất cả:";
+            this.btn_hienthiSV.UseVisualStyleBackColor = true;
+            this.btn_hienthiSV.Click += new System.EventHandler(this.btn_hienthiSV_Click);
+            // 
             // Employee_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(878, 496);
+            this.Controls.Add(this.btn_hienthiSV);
             this.Controls.Add(this.btn_timKiem);
             this.Controls.Add(this.txt_nhapten);
             this.Controls.Add(this.label4);
@@ -263,5 +276,6 @@
         private System.Windows.Forms.Button btn_timKiem;
         private System.Windows.Forms.TextBox txt_nhapten;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_hienthiSV;
     }
 }
