@@ -41,14 +41,7 @@ namespace SinhVien
 
         private void button_signin_Click(object sender, EventArgs e)
         {
-            _command = _connection.CreateCommand();
-            _command.CommandText = "SELECT * FROM Accounts WHERE un = '" + textBox_un.Text + "' AND pw = '" + textBox_pw.Text + "';";
-            _command.ExecuteNonQuery();
-            adaper.SelectCommand = _command;
-
             Employee_Screen controlSV_Screen = new Employee_Screen();
-
-            adaper.Fill(table);
 
             for(int i = 0; i < table.Rows.Count; i++)
             {
@@ -65,11 +58,16 @@ namespace SinhVien
                     controlSV_Screen.Show();
                     break;
 
-                } else
+                } else if (table.Rows[i]["un"].ToString() != textBox_un.Text)
                 {
-                    MessageBox.Show("Không tìm thấy Account!");
+                    MessageBox.Show("Tài khoản không chính xác!!", "Thông báo", MessageBoxButtons.OK , MessageBoxIcon.Information);
+                    break;
+                } else if(table.Rows[i]["pw"].ToString() != textBox_pw.Text)
+                {
+                    MessageBox.Show("Mật khẩu không chính xác!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
                 }
-                    
+
             }
         }
 
@@ -84,6 +82,8 @@ namespace SinhVien
         {
             _connection = new SqlConnection(str);
             _connection.Open(); // mo ket noi
+
+            loaddata();
         }
     }
 }

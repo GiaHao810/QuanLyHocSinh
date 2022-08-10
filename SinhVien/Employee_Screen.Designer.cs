@@ -62,6 +62,7 @@
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button_Confirm2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -129,6 +130,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 311);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(854, 270);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -232,19 +234,18 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -260,6 +261,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button_Confirm2);
             this.groupBox1.Controls.Add(this.button_Cancel);
             this.groupBox1.Controls.Add(this.button_Confirm);
             this.groupBox1.Controls.Add(this.cb_gioitinh);
@@ -388,6 +390,17 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã HS:";
             // 
+            // button_Confirm2
+            // 
+            this.button_Confirm2.Location = new System.Drawing.Point(664, 35);
+            this.button_Confirm2.Name = "button_Confirm2";
+            this.button_Confirm2.Size = new System.Drawing.Size(75, 23);
+            this.button_Confirm2.TabIndex = 8;
+            this.button_Confirm2.Text = "XÁC NHẬN";
+            this.button_Confirm2.UseVisualStyleBackColor = true;
+            this.button_Confirm2.Visible = false;
+            this.button_Confirm2.Click += new System.EventHandler(this.button_Confirm2_Click);
+            // 
             // Employee_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,5 +470,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.Button button_Confirm;
+        private System.Windows.Forms.Button button_Confirm2;
     }
 }

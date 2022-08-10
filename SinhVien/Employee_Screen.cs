@@ -172,27 +172,12 @@ namespace SinhVien
             Application.Exit();
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label_Edit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_id.ReadOnly = true;
-            int i;
-            i = dataGridView1.CurrentRow.Index;
-
-            txt_id.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
-            txt_ho.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-            txt_tenhs.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
-            dtp_ngaySinh.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
-            cb_gioitinh.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            button_Confirm2.Visible = true;
+            button_Cancel.Visible = true;
+            txt_ho.ReadOnly = false;
+            txt_tenhs.ReadOnly = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -224,7 +209,9 @@ namespace SinhVien
                     }
                     check = true;
                 }
-            } catch (NullReferenceException n){
+            }
+            catch (NullReferenceException n)
+            {
                 n.ToString();
             }
 
@@ -234,13 +221,15 @@ namespace SinhVien
                 _command.CommandText = "INSERT INTO ThongTinSinhVien (MaHS, HoSV, TenSV, Ngaysinh, GioiTinh) VALUES ('" + txt_id.Text + "','" + txt_ho.Text + "','" + txt_tenhs.Text + "','" + dtp_ngaySinh.Value + "','" + cb_gioitinh.Text + "')";
                 _command.ExecuteNonQuery();
                 loaddata();
+
                 button_Confirm.Visible = false;
+                button_Confirm2.Visible = false;
                 button_Cancel.Visible = false;
                 txt_ho.ReadOnly = true;
                 txt_id.ReadOnly = true;
                 txt_tenhs.ReadOnly = true;
             }
-            
+
 
             /*
             string add = "insert into ThongTinSinhVien values (@MaSV, @HoSV, @TenSV, @NgaySinh , @Gioitinh)";
@@ -257,25 +246,39 @@ namespace SinhVien
 
         private void label3_Click(object sender, EventArgs e)
         {
-        
+
             _command = _connection.CreateCommand();
             _command.CommandText = "SELECT  COUNT (MaHS) FROM [ThongTinSinhVien] ";
             _command.ExecuteNonQuery();
             Int32 count = (Int32)_command.ExecuteScalar();
 
             MessageBox.Show("Tong So Sinh Vien " + count);
-
-
-
         }
 
         private void button_Cancel_Click(object sender, EventArgs e)
         {
             button_Confirm.Visible = false;
+            button_Confirm2.Visible = false;
             button_Cancel.Visible = false;
             txt_ho.ReadOnly = true;
             txt_id.ReadOnly = true;
             txt_tenhs.ReadOnly = true;
+        }
+
+        private void button_Confirm2_Click(object sender, EventArgs e)
+        {
+            _command = _connection.CreateCommand();
+            _command.CommandText = "UPDATE ThongTinSinhVien SET HoSV = '" + txt_ho.Text + "', TenSV = '" + txt_tenhs.Text + "', Ngaysinh = '" + dtp_ngaySinh.Value + "', GioiTinh = '" + cb_gioitinh.Text + "' WHERE MaHS = '" + txt_id.Text + "'";
+            _command.ExecuteNonQuery();
+            loaddata();
+
+            button_Confirm2.Visible = false;
+            button_Confirm.Visible = false;
+            button_Cancel.Visible = false;
+            txt_ho.ReadOnly = true;
+            txt_id.ReadOnly = true;
+            txt_tenhs.ReadOnly = true;
+
         }
     }
 }
