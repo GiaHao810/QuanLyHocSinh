@@ -67,10 +67,14 @@ namespace SinhVien
 
             timer1.Start();
         }
-
+        //Tminh
         private void label_Add_Click(object sender, EventArgs e)
         {
-
+            button_Confirm.Visible = true;
+            button_Cancel.Visible = true;
+            txt_ho.ReadOnly = false;
+            txt_id.ReadOnly = false;
+            txt_tenhs.ReadOnly = false;
         }
 
         private void label_Delete_Click(object sender, EventArgs e)
@@ -202,6 +206,81 @@ namespace SinhVien
             txt_tenhs.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
             dtp_ngaySinh.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
             cb_gioitinh.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+        }
+
+        private void button_Confirm_Click(object sender, EventArgs e)
+        {
+            Boolean check = false;
+
+            try
+            {
+                for (int i = 0; i <= dataGridView1.Rows.Count; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[0].Value.ToString() == txt_id.Text)
+                    {
+                        MessageBox.Show("Mã Học Sinh không được trùng");
+                        check = false;
+                        break;
+                    }
+                    check = true;
+                }
+            } catch (NullReferenceException n){
+                n.ToString();
+            }
+
+            if (check)
+            {
+                _command = _connection.CreateCommand();
+                _command.CommandText = "INSERT INTO ThongTinSinhVien (MaHS, HoSV, TenSV, Ngaysinh, GioiTinh) VALUES ('" + txt_id.Text + "','" + txt_ho.Text + "','" + txt_tenhs.Text + "','" + dtp_ngaySinh.Value + "','" + cb_gioitinh.Text + "')";
+                _command.ExecuteNonQuery();
+                loaddata();
+                button_Confirm.Visible = false;
+                button_Cancel.Visible = false;
+                txt_ho.ReadOnly = true;
+                txt_id.ReadOnly = true;
+                txt_tenhs.ReadOnly = true;
+            }
+            
+
+            /*
+            string add = "insert into ThongTinSinhVien values (@MaSV, @HoSV, @TenSV, @NgaySinh , @Gioitinh)";
+            _command = new SqlCommand(add, _connection);
+            _command.Parameters.AddWithValue("MaSV", txt_id.Text);
+            _command.Parameters.AddWithValue("HoSV", txt_ho.Text);
+            _command.Parameters.AddWithValue("TenSV", txt_tenhs.Text);
+            _command.Parameters.AddWithValue("NgaySinh", dtp_ngaySinh.Text);
+            _command.Parameters.AddWithValue("Gioitinh", cb_gioitinh.Text);
+            _command.ExecuteNonQuery();
+            loaddata();
+            */
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+        
+            _command = _connection.CreateCommand();
+            _command.CommandText = "SELECT  COUNT (MaHS) FROM [ThongTinSinhVien] ";
+            _command.ExecuteNonQuery();
+            Int32 count = (Int32)_command.ExecuteScalar();
+
+            MessageBox.Show("Tong So Sinh Vien " + count);
+
+
+
+        }
+
+        private void dtp_ngaySinh_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Cancel_Click(object sender, EventArgs e)
+        {
+            button_Confirm.Visible = false;
+            button_Cancel.Visible = false;
+            txt_ho.ReadOnly = true;
+            txt_id.ReadOnly = true;
+            txt_tenhs.ReadOnly = true;
         }
     }
 }

@@ -49,6 +49,8 @@
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_Name = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_Cancel = new System.Windows.Forms.Button();
+            this.button_Confirm = new System.Windows.Forms.Button();
             this.cb_gioitinh = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -170,6 +172,7 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Report";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btn_timKiem
             // 
@@ -258,6 +261,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button_Cancel);
+            this.groupBox1.Controls.Add(this.button_Confirm);
             this.groupBox1.Controls.Add(this.cb_gioitinh);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
@@ -274,6 +279,28 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Điền thông tin sinh viên";
+            // 
+            // button_Cancel
+            // 
+            this.button_Cancel.Location = new System.Drawing.Point(664, 82);
+            this.button_Cancel.Name = "button_Cancel";
+            this.button_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.button_Cancel.TabIndex = 7;
+            this.button_Cancel.Text = "HỦY";
+            this.button_Cancel.UseVisualStyleBackColor = true;
+            this.button_Cancel.Visible = false;
+            this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
+            // 
+            // button_Confirm
+            // 
+            this.button_Confirm.Location = new System.Drawing.Point(664, 34);
+            this.button_Confirm.Name = "button_Confirm";
+            this.button_Confirm.Size = new System.Drawing.Size(75, 23);
+            this.button_Confirm.TabIndex = 6;
+            this.button_Confirm.Text = "XÁC NHẬN";
+            this.button_Confirm.UseVisualStyleBackColor = true;
+            this.button_Confirm.Visible = false;
+            this.button_Confirm.Click += new System.EventHandler(this.button_Confirm_Click);
             // 
             // cb_gioitinh
             // 
@@ -310,11 +337,13 @@
             this.dtp_ngaySinh.Name = "dtp_ngaySinh";
             this.dtp_ngaySinh.Size = new System.Drawing.Size(198, 20);
             this.dtp_ngaySinh.TabIndex = 2;
+            this.dtp_ngaySinh.ValueChanged += new System.EventHandler(this.dtp_ngaySinh_ValueChanged);
             // 
             // txt_tenhs
             // 
             this.txt_tenhs.Location = new System.Drawing.Point(347, 75);
             this.txt_tenhs.Name = "txt_tenhs";
+            this.txt_tenhs.ReadOnly = true;
             this.txt_tenhs.Size = new System.Drawing.Size(207, 20);
             this.txt_tenhs.TabIndex = 1;
             // 
@@ -331,6 +360,7 @@
             // 
             this.txt_ho.Location = new System.Drawing.Point(86, 75);
             this.txt_ho.Name = "txt_ho";
+            this.txt_ho.ReadOnly = true;
             this.txt_ho.Size = new System.Drawing.Size(207, 20);
             this.txt_ho.TabIndex = 1;
             // 
@@ -347,6 +377,7 @@
             // 
             this.txt_id.Location = new System.Drawing.Point(86, 37);
             this.txt_id.Name = "txt_id";
+            this.txt_id.ReadOnly = true;
             this.txt_id.Size = new System.Drawing.Size(207, 20);
             this.txt_id.TabIndex = 1;
             // 
@@ -426,5 +457,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button_Cancel;
+        private System.Windows.Forms.Button button_Confirm;
     }
 }
