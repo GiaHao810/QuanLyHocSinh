@@ -35,8 +35,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.boxLoai = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,7 +43,7 @@
             // button_signin
             // 
             this.button_signin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_signin.Location = new System.Drawing.Point(297, 396);
+            this.button_signin.Location = new System.Drawing.Point(297, 345);
             this.button_signin.Name = "button_signin";
             this.button_signin.Size = new System.Drawing.Size(140, 38);
             this.button_signin.TabIndex = 17;
@@ -56,7 +54,7 @@
             // button_register
             // 
             this.button_register.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_register.Location = new System.Drawing.Point(54, 396);
+            this.button_register.Location = new System.Drawing.Point(54, 345);
             this.button_register.Name = "button_register";
             this.button_register.Size = new System.Drawing.Size(125, 38);
             this.button_register.TabIndex = 16;
@@ -109,27 +107,6 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Tên tài khoản";
             // 
-            // boxLoai
-            // 
-            this.boxLoai.FormattingEnabled = true;
-            this.boxLoai.Items.AddRange(new object[] {
-            "NHÂN VIÊN",
-            "HỌC SINH"});
-            this.boxLoai.Location = new System.Drawing.Point(207, 335);
-            this.boxLoai.Name = "boxLoai";
-            this.boxLoai.Size = new System.Drawing.Size(121, 21);
-            this.boxLoai.TabIndex = 18;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 334);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 18);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Chọn chức vụ :";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::SinhVien.Properties.Resources._0af3c9613761d2d2394d99312aeba397;
@@ -143,7 +120,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(142, 440);
+            this.dateTimePicker1.Location = new System.Drawing.Point(142, 389);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 21;
@@ -152,11 +129,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 462);
+            this.ClientSize = new System.Drawing.Size(503, 422);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.boxLoai);
             this.Controls.Add(this.button_signin);
             this.Controls.Add(this.button_register);
             this.Controls.Add(this.textBox_pw);
@@ -181,8 +156,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox boxLoai;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
