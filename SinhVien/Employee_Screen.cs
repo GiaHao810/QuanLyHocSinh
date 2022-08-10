@@ -34,7 +34,7 @@ namespace SinhVien
         {
             _command = _connection.CreateCommand();
             _command.CommandText = "select * from ThongTinSinhVien";
-            _command.ExecuteNonQuery();
+            //_command.ExecuteNonQuery();
             adaper.SelectCommand = _command;
             table.Clear();
 
@@ -77,7 +77,7 @@ namespace SinhVien
         {
             //Lỗi nè Minh
             _command = _connection.CreateCommand();
-            _command.CommandText = "DELETE FROM ThongTinSinhVien WHERE MaSV = '" + txt_id.Text + "'";
+            _command.CommandText = "DELETE FROM ThongTinSinhVien WHERE MaHS = '" + txt_id.Text + "'";
             _command.ExecuteNonQuery();
             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -179,6 +179,19 @@ namespace SinhVien
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.ReadOnly = true;
+            int i;
+            i = dataGridView1.CurrentRow.Index;
+
+            txt_id.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+            txt_ho.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+            txt_tenhs.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+            dtp_ngaySinh.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+            cb_gioitinh.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txt_id.ReadOnly = true;
             int i;
