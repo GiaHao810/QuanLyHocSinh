@@ -269,11 +269,6 @@ namespace SinhVien
 
         }
 
-        private void dtp_ngaySinh_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_Cancel_Click(object sender, EventArgs e)
         {
             button_Confirm.Visible = false;

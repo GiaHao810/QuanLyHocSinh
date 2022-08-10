@@ -132,7 +132,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(854, 270);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // pictureBox1
             // 
@@ -337,7 +336,6 @@
             this.dtp_ngaySinh.Name = "dtp_ngaySinh";
             this.dtp_ngaySinh.Size = new System.Drawing.Size(198, 20);
             this.dtp_ngaySinh.TabIndex = 2;
-            this.dtp_ngaySinh.ValueChanged += new System.EventHandler(this.dtp_ngaySinh_ValueChanged);
             // 
             // txt_tenhs
             // 
