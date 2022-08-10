@@ -38,7 +38,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_timKiem = new System.Windows.Forms.Button();
             this.txt_nhapten = new System.Windows.Forms.TextBox();
@@ -48,7 +47,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label_Name = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -58,24 +57,25 @@
             // 
             this.label_so.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_so.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_so.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_so.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_so.ForeColor = System.Drawing.Color.Red;
-            this.label_so.Location = new System.Drawing.Point(23, 437);
+            this.label_so.Location = new System.Drawing.Point(770, 431);
             this.label_so.Name = "label_so";
-            this.label_so.Size = new System.Drawing.Size(130, 43);
+            this.label_so.Size = new System.Drawing.Size(96, 30);
             this.label_so.TabIndex = 15;
             this.label_so.Text = "THOÁT";
             this.label_so.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_so.Click += new System.EventHandler(this.label_so_Click);
             // 
             // label_Edit
             // 
             this.label_Edit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Edit.ForeColor = System.Drawing.Color.Red;
-            this.label_Edit.Location = new System.Drawing.Point(23, 319);
+            this.label_Edit.Location = new System.Drawing.Point(244, 431);
             this.label_Edit.Name = "label_Edit";
-            this.label_Edit.Size = new System.Drawing.Size(130, 43);
+            this.label_Edit.Size = new System.Drawing.Size(96, 30);
             this.label_Edit.TabIndex = 12;
             this.label_Edit.Text = "SỬA";
             this.label_Edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -84,11 +84,11 @@
             // 
             this.label_Delete.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Delete.ForeColor = System.Drawing.Color.Red;
-            this.label_Delete.Location = new System.Drawing.Point(23, 257);
+            this.label_Delete.Location = new System.Drawing.Point(128, 431);
             this.label_Delete.Name = "label_Delete";
-            this.label_Delete.Size = new System.Drawing.Size(130, 43);
+            this.label_Delete.Size = new System.Drawing.Size(96, 30);
             this.label_Delete.TabIndex = 10;
             this.label_Delete.Text = "XÓA";
             this.label_Delete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -98,11 +98,11 @@
             // 
             this.label_Add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_Add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Add.ForeColor = System.Drawing.Color.Red;
-            this.label_Add.Location = new System.Drawing.Point(23, 195);
+            this.label_Add.Location = new System.Drawing.Point(12, 431);
             this.label_Add.Name = "label_Add";
-            this.label_Add.Size = new System.Drawing.Size(130, 43);
+            this.label_Add.Size = new System.Drawing.Size(96, 30);
             this.label_Add.TabIndex = 9;
             this.label_Add.Text = "THÊM";
             this.label_Add.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,9 +111,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(191, 244);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 149);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(668, 270);
+            this.dataGridView1.Size = new System.Drawing.Size(854, 270);
             this.dataGridView1.TabIndex = 8;
             // 
             // pictureBox1
@@ -132,7 +132,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(243, 52);
+            this.label1.Location = new System.Drawing.Point(208, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(395, 44);
             this.label1.TabIndex = 17;
@@ -142,25 +142,15 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Yellow;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(12, 144);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 383);
-            this.label2.TabIndex = 18;
-            // 
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(23, 376);
+            this.label3.Location = new System.Drawing.Point(359, 431);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 43);
+            this.label3.Size = new System.Drawing.Size(96, 30);
             this.label3.TabIndex = 19;
             this.label3.Text = "Report";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,7 +158,7 @@
             // btn_timKiem
             // 
             this.btn_timKiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_timKiem.Location = new System.Drawing.Point(655, 110);
+            this.btn_timKiem.Location = new System.Drawing.Point(635, 84);
             this.btn_timKiem.Name = "btn_timKiem";
             this.btn_timKiem.Size = new System.Drawing.Size(91, 25);
             this.btn_timKiem.TabIndex = 22;
@@ -179,7 +169,7 @@
             // txt_nhapten
             // 
             this.txt_nhapten.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nhapten.Location = new System.Drawing.Point(254, 110);
+            this.txt_nhapten.Location = new System.Drawing.Point(205, 86);
             this.txt_nhapten.Multiline = true;
             this.txt_nhapten.Name = "txt_nhapten";
             this.txt_nhapten.Size = new System.Drawing.Size(395, 23);
@@ -189,7 +179,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(173, 110);
+            this.label4.Location = new System.Drawing.Point(113, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 19);
             this.label4.TabIndex = 20;
@@ -198,7 +188,7 @@
             // btn_hienthiSV
             // 
             this.btn_hienthiSV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_hienthiSV.Location = new System.Drawing.Point(191, 213);
+            this.btn_hienthiSV.Location = new System.Drawing.Point(732, 118);
             this.btn_hienthiSV.Name = "btn_hienthiSV";
             this.btn_hienthiSV.Size = new System.Drawing.Size(134, 25);
             this.btn_hienthiSV.TabIndex = 23;
@@ -220,31 +210,35 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importToolStripMenuItem,
-            this.exportToolStripMenuItem,
-            this.thoátToolStripMenuItem});
+            this.exportToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
-            // thoátToolStripMenuItem
+            // label_Name
             // 
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.label_Name.AutoSize = true;
+            this.label_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Name.Location = new System.Drawing.Point(8, 43);
+            this.label_Name.Name = "label_Name";
+            this.label_Name.Size = new System.Drawing.Size(88, 20);
+            this.label_Name.TabIndex = 25;
+            this.label_Name.Text = "username";
             // 
             // Employee_Screen
             // 
@@ -252,6 +246,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(878, 536);
+            this.Controls.Add(this.label_Name);
             this.Controls.Add(this.btn_hienthiSV);
             this.Controls.Add(this.btn_timKiem);
             this.Controls.Add(this.txt_nhapten);
@@ -264,7 +259,6 @@
             this.Controls.Add(this.label_Delete);
             this.Controls.Add(this.label_Add);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Employee_Screen";
@@ -288,7 +282,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_timKiem;
         private System.Windows.Forms.TextBox txt_nhapten;
@@ -298,6 +291,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
+        private System.Windows.Forms.Label label_Name;
     }
 }

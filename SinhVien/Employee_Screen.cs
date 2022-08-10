@@ -26,6 +26,10 @@ namespace SinhVien
 
         DataTable table = new DataTable();
 
+        String s;
+
+        public string S { get => s; set => s = value; }
+
         void loaddata()
         {
             _command = _connection.CreateCommand();
@@ -54,6 +58,8 @@ namespace SinhVien
 
         private void ControlSV_Screen_Load(object sender, EventArgs e)
         {
+            label_Name.Text = "USERNAME : " + SignIn_Screen.getValue;
+            
             _connection = new SqlConnection(str);
             _connection.Open(); // mo ket noi
 
@@ -71,6 +77,7 @@ namespace SinhVien
         {
             _command = _connection.CreateCommand();
             _command.CommandText = "DELETE FROM ThongTinSinhVien WHERE MaSV = '" + dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString() + "'";
+            _command.ExecuteNonQuery();
             adaper.SelectCommand = _command;
             table.Clear();
 
@@ -150,6 +157,21 @@ namespace SinhVien
                     MessageBox.Show("Xuất file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void label_so_Click(object sender, EventArgs e)
+        {
+            _command = _connection.CreateCommand();
+            _command.CommandText = "UPDATE Accounts SET state = 'Offline' WHERE un = '" + SignIn_Screen.getValue + "'";
+            _command.ExecuteNonQuery();
+            adaper.SelectCommand = _command;
+
+            Application.Exit();
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

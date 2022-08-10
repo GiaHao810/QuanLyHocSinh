@@ -14,6 +14,26 @@ namespace SinhVien
 {
     public partial class SignIn_Screen : Form
     {
+        SqlConnection _connection = null;
+        SqlCommand _command;
+        string str = "Data Source=LAPTOP-SKAKNRQ2;Integrated Security=True;Initial Catalog=QLSV";
+        SqlDataAdapter adaper = new SqlDataAdapter();
+
+        DataTable table = new DataTable();
+
+        public static String getValue = "";
+
+        void loaddata()
+        {
+            _command = _connection.CreateCommand();
+            _command.CommandText = "select * from Accounts";
+            _command.ExecuteNonQuery();
+            adaper.SelectCommand = _command;
+            table.Clear();
+
+            adaper.Fill(table);
+        }
+
         public SignIn_Screen()
         { 
             InitializeComponent();
@@ -24,32 +44,33 @@ namespace SinhVien
             //Kiểm tra un - pw
 
             //..................................................
-
-            //Kiểm tra role để chọn màn hình 
+            _command = _connection.CreateCommand();
+            _command.CommandText = "SELECT * FROM Accounts WHERE un = '" + textBox_un.Text + "' AND pw = '" + textBox_pw.Text + "';";
+            _command.ExecuteNonQuery();
+            adaper.SelectCommand = _command;
 
             Employee_Screen controlSV_Screen = new Employee_Screen();
 
-            controlSV_Screen.Show();
+            adaper.Fill(table);
 
-            Student_Screen student_Screen = new Student_Screen();
-            /*
-            if (boxLoai.SelectedItem.ToString() == "")
+            for(int i = 0; i < table.Rows.Count; i++)
             {
+                if (table.Rows[i]["un"].ToString() == textBox_un.Text && table.Rows[i]["pw"].ToString() == textBox_pw.Text)
+                {
+                    _command.CommandText = "UPDATE Accounts SET state = 'Online' WHERE un = '" + textBox_un.Text + "'";
+                    _command.ExecuteNonQuery();
+                    adaper.SelectCommand = _command;
 
-                MessageBox.Show("Vui lòng chọn chức vụ!!");
+                    getValue = textBox_un.Text;
+                    controlSV_Screen.Show();
+                    break;
 
-            } else if(boxLoai.SelectedItem.ToString() == "NHÂN VIÊN")
-            {
-
-                
-
-            } else if(boxLoai.SelectedItem.ToString() == "HỌC SINH")
-            {
-
-                
-
+                } else
+                {
+                    MessageBox.Show("Không tìm thấy Account!");
+                }
+                    
             }
-            */
         }
 
         private void button_register_Click(object sender, EventArgs e)
@@ -57,6 +78,12 @@ namespace SinhVien
             SignUp_Screen screenA = new SignUp_Screen();
 
             screenA.Show();
+        }
+
+        private void SignIn_Screen_Load(object sender, EventArgs e)
+        {
+            _connection = new SqlConnection(str);
+            _connection.Open(); // mo ket noi
         }
     }
 }

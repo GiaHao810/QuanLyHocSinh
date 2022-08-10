@@ -66,6 +66,7 @@
             // 
             this.textBox_pw.Location = new System.Drawing.Point(207, 291);
             this.textBox_pw.Name = "textBox_pw";
+            this.textBox_pw.PasswordChar = '*';
             this.textBox_pw.Size = new System.Drawing.Size(176, 20);
             this.textBox_pw.TabIndex = 14;
             // 
@@ -141,6 +142,7 @@
             this.Controls.Add(this.label1);
             this.Name = "SignIn_Screen";
             this.Text = "ĐĂNG NHẬP";
+            this.Load += new System.EventHandler(this.SignIn_Screen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
