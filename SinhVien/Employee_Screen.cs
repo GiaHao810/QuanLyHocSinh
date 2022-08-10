@@ -75,14 +75,14 @@ namespace SinhVien
 
         private void label_Delete_Click(object sender, EventArgs e)
         {
+            //Lỗi nè Minh
             _command = _connection.CreateCommand();
             _command.CommandText = "DELETE FROM ThongTinSinhVien WHERE MaSV = '" + dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString() + "'";
-            _command.ExecuteNonQuery();
             adaper.SelectCommand = _command;
-            table.Clear();
+            _command.ExecuteNonQuery();
+            MessageBox.Show(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString());
 
-            adaper.Fill(table);
-            dataGridView1.DataSource = table;
+            loaddata();
         }
 
         //code of Min
@@ -172,6 +172,11 @@ namespace SinhVien
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label_Edit_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

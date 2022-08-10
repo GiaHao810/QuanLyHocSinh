@@ -41,9 +41,6 @@ namespace SinhVien
 
         private void button_signin_Click(object sender, EventArgs e)
         {
-            //Kiểm tra un - pw
-
-            //..................................................
             _command = _connection.CreateCommand();
             _command.CommandText = "SELECT * FROM Accounts WHERE un = '" + textBox_un.Text + "' AND pw = '" + textBox_pw.Text + "';";
             _command.ExecuteNonQuery();
@@ -62,6 +59,9 @@ namespace SinhVien
                     adaper.SelectCommand = _command;
 
                     getValue = textBox_un.Text;
+
+                    Visible = false;
+
                     controlSV_Screen.Show();
                     break;
 

@@ -79,6 +79,7 @@
             this.label_Edit.TabIndex = 12;
             this.label_Edit.Text = "SỬA";
             this.label_Edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Edit.Click += new System.EventHandler(this.label_Edit_Click);
             // 
             // label_Delete
             // 

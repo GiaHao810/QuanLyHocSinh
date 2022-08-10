@@ -29,21 +29,19 @@
         private void InitializeComponent()
         {
             this.button_signin = new System.Windows.Forms.Button();
-            this.button_register = new System.Windows.Forms.Button();
             this.textBox_pw = new System.Windows.Forms.TextBox();
             this.textBox_un = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_signin
             // 
             this.button_signin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_signin.Location = new System.Drawing.Point(297, 345);
+            this.button_signin.Location = new System.Drawing.Point(164, 334);
             this.button_signin.Name = "button_signin";
             this.button_signin.Size = new System.Drawing.Size(140, 38);
             this.button_signin.TabIndex = 17;
@@ -51,23 +49,12 @@
             this.button_signin.UseVisualStyleBackColor = true;
             this.button_signin.Click += new System.EventHandler(this.button_signin_Click);
             // 
-            // button_register
-            // 
-            this.button_register.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_register.Location = new System.Drawing.Point(54, 345);
-            this.button_register.Name = "button_register";
-            this.button_register.Size = new System.Drawing.Size(125, 38);
-            this.button_register.TabIndex = 16;
-            this.button_register.Text = "ĐĂNG KÝ";
-            this.button_register.UseVisualStyleBackColor = true;
-            this.button_register.Click += new System.EventHandler(this.button_register_Click);
-            // 
             // textBox_pw
             // 
             this.textBox_pw.Location = new System.Drawing.Point(207, 291);
             this.textBox_pw.Name = "textBox_pw";
             this.textBox_pw.PasswordChar = '*';
-            this.textBox_pw.Size = new System.Drawing.Size(176, 20);
+            this.textBox_pw.Size = new System.Drawing.Size(212, 20);
             this.textBox_pw.TabIndex = 14;
             // 
             // textBox_un
@@ -119,22 +106,13 @@
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(142, 389);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 21;
-            // 
             // SignIn_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 422);
-            this.Controls.Add(this.dateTimePicker1);
+            this.ClientSize = new System.Drawing.Size(503, 385);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button_signin);
-            this.Controls.Add(this.button_register);
             this.Controls.Add(this.textBox_pw);
             this.Controls.Add(this.textBox_un);
             this.Controls.Add(this.label4);
@@ -152,14 +130,12 @@
         #endregion
 
         private System.Windows.Forms.Button button_signin;
-        private System.Windows.Forms.Button button_register;
         private System.Windows.Forms.TextBox textBox_pw;
         private System.Windows.Forms.TextBox textBox_un;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
