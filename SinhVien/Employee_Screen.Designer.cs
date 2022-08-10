@@ -48,9 +48,22 @@
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_Name = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_id = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_ho = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_tenhs = new System.Windows.Forms.TextBox();
+            this.dtp_ngaySinh = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cb_gioitinh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_so
@@ -59,7 +72,7 @@
             this.label_so.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_so.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_so.ForeColor = System.Drawing.Color.Red;
-            this.label_so.Location = new System.Drawing.Point(770, 431);
+            this.label_so.Location = new System.Drawing.Point(770, 594);
             this.label_so.Name = "label_so";
             this.label_so.Size = new System.Drawing.Size(96, 30);
             this.label_so.TabIndex = 15;
@@ -73,7 +86,7 @@
             this.label_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Edit.ForeColor = System.Drawing.Color.Red;
-            this.label_Edit.Location = new System.Drawing.Point(244, 431);
+            this.label_Edit.Location = new System.Drawing.Point(244, 594);
             this.label_Edit.Name = "label_Edit";
             this.label_Edit.Size = new System.Drawing.Size(96, 30);
             this.label_Edit.TabIndex = 12;
@@ -87,7 +100,7 @@
             this.label_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Delete.ForeColor = System.Drawing.Color.Red;
-            this.label_Delete.Location = new System.Drawing.Point(128, 431);
+            this.label_Delete.Location = new System.Drawing.Point(128, 594);
             this.label_Delete.Name = "label_Delete";
             this.label_Delete.Size = new System.Drawing.Size(96, 30);
             this.label_Delete.TabIndex = 10;
@@ -101,7 +114,7 @@
             this.label_Add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Add.ForeColor = System.Drawing.Color.Red;
-            this.label_Add.Location = new System.Drawing.Point(12, 431);
+            this.label_Add.Location = new System.Drawing.Point(12, 594);
             this.label_Add.Name = "label_Add";
             this.label_Add.Size = new System.Drawing.Size(96, 30);
             this.label_Add.TabIndex = 9;
@@ -112,10 +125,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 149);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 311);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(854, 270);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // pictureBox1
             // 
@@ -149,7 +163,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(359, 431);
+            this.label3.Location = new System.Drawing.Point(359, 594);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 30);
             this.label3.TabIndex = 19;
@@ -189,7 +203,7 @@
             // btn_hienthiSV
             // 
             this.btn_hienthiSV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_hienthiSV.Location = new System.Drawing.Point(732, 118);
+            this.btn_hienthiSV.Location = new System.Drawing.Point(732, 280);
             this.btn_hienthiSV.Name = "btn_hienthiSV";
             this.btn_hienthiSV.Size = new System.Drawing.Size(134, 25);
             this.btn_hienthiSV.TabIndex = 23;
@@ -203,7 +217,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(878, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(889, 24);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -220,14 +234,14 @@
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -241,12 +255,116 @@
             this.label_Name.TabIndex = 25;
             this.label_Name.Text = "username";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cb_gioitinh);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.dtp_ngaySinh);
+            this.groupBox1.Controls.Add(this.txt_tenhs);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txt_ho);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txt_id);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(29, 115);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(837, 159);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Điền thông tin sinh viên";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Mã HS:";
+            // 
+            // txt_id
+            // 
+            this.txt_id.Location = new System.Drawing.Point(86, 37);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(207, 20);
+            this.txt_id.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Họ HS:";
+            // 
+            // txt_ho
+            // 
+            this.txt_ho.Location = new System.Drawing.Point(86, 75);
+            this.txt_ho.Name = "txt_ho";
+            this.txt_ho.Size = new System.Drawing.Size(207, 20);
+            this.txt_ho.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(299, 82);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Tên HV:";
+            // 
+            // txt_tenhs
+            // 
+            this.txt_tenhs.Location = new System.Drawing.Point(347, 75);
+            this.txt_tenhs.Name = "txt_tenhs";
+            this.txt_tenhs.Size = new System.Drawing.Size(207, 20);
+            this.txt_tenhs.TabIndex = 1;
+            // 
+            // dtp_ngaySinh
+            // 
+            this.dtp_ngaySinh.Location = new System.Drawing.Point(88, 113);
+            this.dtp_ngaySinh.Name = "dtp_ngaySinh";
+            this.dtp_ngaySinh.Size = new System.Drawing.Size(198, 20);
+            this.dtp_ngaySinh.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Ngày sinh:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(299, 119);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Giới tính:";
+            // 
+            // cb_gioitinh
+            // 
+            this.cb_gioitinh.FormattingEnabled = true;
+            this.cb_gioitinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cb_gioitinh.Location = new System.Drawing.Point(355, 111);
+            this.cb_gioitinh.Name = "cb_gioitinh";
+            this.cb_gioitinh.Size = new System.Drawing.Size(179, 21);
+            this.cb_gioitinh.TabIndex = 5;
+            // 
             // Employee_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(878, 536);
+            this.ClientSize = new System.Drawing.Size(889, 643);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label_Name);
             this.Controls.Add(this.btn_hienthiSV);
             this.Controls.Add(this.btn_timKiem);
@@ -268,6 +386,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +413,17 @@
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.Label label_Name;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ComboBox cb_gioitinh;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtp_ngaySinh;
+        private System.Windows.Forms.TextBox txt_tenhs;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_ho;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_id;
+        private System.Windows.Forms.Label label2;
     }
 }

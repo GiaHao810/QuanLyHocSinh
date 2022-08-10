@@ -59,7 +59,7 @@ namespace SinhVien
         private void ControlSV_Screen_Load(object sender, EventArgs e)
         {
             label_Name.Text = "USERNAME : " + SignIn_Screen.getValue;
-            
+
             _connection = new SqlConnection(str);
             _connection.Open(); // mo ket noi
 
@@ -77,10 +77,9 @@ namespace SinhVien
         {
             //Lỗi nè Minh
             _command = _connection.CreateCommand();
-            _command.CommandText = "DELETE FROM ThongTinSinhVien WHERE MaSV = '" + dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString() + "'";
-            adaper.SelectCommand = _command;
+            _command.CommandText = "DELETE FROM ThongTinSinhVien WHERE MaSV = '" + txt_id.Text + "'";
             _command.ExecuteNonQuery();
-            MessageBox.Show(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString());
+            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             loaddata();
         }
@@ -176,7 +175,20 @@ namespace SinhVien
 
         private void label_Edit_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.ReadOnly = true;
+            int i;
+            i = dataGridView1.CurrentRow.Index;
+
+            txt_id.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+            txt_ho.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+            txt_tenhs.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+            dtp_ngaySinh.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+            cb_gioitinh.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
         }
     }
 }
