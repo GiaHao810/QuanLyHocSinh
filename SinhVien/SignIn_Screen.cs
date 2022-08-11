@@ -35,7 +35,7 @@ namespace SinhVien
         }
 
         public SignIn_Screen()
-        { 
+        {
             InitializeComponent();
         }
 
@@ -43,7 +43,7 @@ namespace SinhVien
         {
             Employee_Screen controlSV_Screen = new Employee_Screen();
 
-            for(int i = 0; i < table.Rows.Count; i++)
+            for (int i = 0; i < table.Rows.Count; i++)
             {
                 if (table.Rows[i]["un"].ToString() == textBox_un.Text && table.Rows[i]["pw"].ToString() == textBox_pw.Text)
                 {
@@ -58,11 +58,13 @@ namespace SinhVien
                     controlSV_Screen.Show();
                     break;
 
-                } else if (table.Rows[i]["un"].ToString() != textBox_un.Text)
+                }
+                else if (table.Rows[i]["un"].ToString() != textBox_un.Text)
                 {
-                    MessageBox.Show("Tài khoản không chính xác!!", "Thông báo", MessageBoxButtons.OK , MessageBoxIcon.Information);
+                    MessageBox.Show("Tài khoản không chính xác!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
-                } else if(table.Rows[i]["pw"].ToString() != textBox_pw.Text)
+                }
+                else if (table.Rows[i]["pw"].ToString() != textBox_pw.Text)
                 {
                     MessageBox.Show("Mật khẩu không chính xác!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
@@ -84,6 +86,9 @@ namespace SinhVien
             _connection.Open(); // mo ket noi
 
             loaddata();
+
+            this.Close();
+            Program.dangnhap.Start();
         }
     }
 }

@@ -49,6 +49,7 @@
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_Name = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_Confirm2 = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.button_Confirm = new System.Windows.Forms.Button();
             this.cb_gioitinh = new System.Windows.Forms.ComboBox();
@@ -62,7 +63,6 @@
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button_Confirm2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -281,6 +281,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Điền thông tin sinh viên";
             // 
+            // button_Confirm2
+            // 
+            this.button_Confirm2.Location = new System.Drawing.Point(664, 35);
+            this.button_Confirm2.Name = "button_Confirm2";
+            this.button_Confirm2.Size = new System.Drawing.Size(75, 23);
+            this.button_Confirm2.TabIndex = 8;
+            this.button_Confirm2.Text = "XÁC NHẬN";
+            this.button_Confirm2.UseVisualStyleBackColor = true;
+            this.button_Confirm2.Visible = false;
+            this.button_Confirm2.Click += new System.EventHandler(this.button_Confirm2_Click);
+            // 
             // button_Cancel
             // 
             this.button_Cancel.Location = new System.Drawing.Point(664, 82);
@@ -389,17 +400,6 @@
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã HS:";
-            // 
-            // button_Confirm2
-            // 
-            this.button_Confirm2.Location = new System.Drawing.Point(664, 35);
-            this.button_Confirm2.Name = "button_Confirm2";
-            this.button_Confirm2.Size = new System.Drawing.Size(75, 23);
-            this.button_Confirm2.TabIndex = 8;
-            this.button_Confirm2.Text = "XÁC NHẬN";
-            this.button_Confirm2.UseVisualStyleBackColor = true;
-            this.button_Confirm2.Visible = false;
-            this.button_Confirm2.Click += new System.EventHandler(this.button_Confirm2_Click);
             // 
             // Employee_Screen
             // 
