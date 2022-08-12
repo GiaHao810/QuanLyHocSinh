@@ -87,8 +87,6 @@ namespace SinhVien
 
             loaddata();
 
-            this.Close();
-            Program.dangnhap.Start();
         }
     }
 }
