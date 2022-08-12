@@ -13,7 +13,7 @@ using System.IO;
 using OfficeOpenXml;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Data.SqlClient;
-using OfficeOpenXml.Core.ExcelPackage;
+
 
 namespace SinhVien
 {
@@ -139,7 +139,43 @@ namespace SinhVien
 
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Import Excel";
+            openFileDialog.Filter = "Excel (*.xlsx)| *.xlsx | Excel (*.xlsx) |*.xlsx";
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ImportExcel(openFileDialog.FileName);
+                    MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xuất file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        private void ImportExcel(string path)
+        {
+            using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(path)))
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
+                for (int i = excelWorksheet.Dimension.Start.Column; i <= excelWorksheet.Dimension.End.Column; i++)
+                {
+                    table.Columns.Add(excelWorksheet.Cells[1, i].Value.ToString());
+                }
+                for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
+                {
+                    List<string> listRows = new List<string>();
+                    for (int j = excelWorksheet.Dimension.Start.Column; j <= excelWorksheet.Dimension.End.Column; j++)
+                    {
+                        listRows.Add(excelWorksheet.Cells[i, j].Value.ToString());
+                    }
+                    table.Rows.Add(listRows.ToArray());
+                }
+                dataGridView1.DataSource = table;
+            }
         }
 
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
