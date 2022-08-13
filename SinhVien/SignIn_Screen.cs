@@ -59,6 +59,16 @@ namespace SinhVien
                     break;
 
                 }
+                else if (textBox_un.Text == "")
+                {
+                    MessageBox.Show("Tài khoản không được trống!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
+                else if (textBox_pw.Text == "")
+                {
+                    MessageBox.Show("Mật khẩu không được trống!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
                 else if (table.Rows[i]["un"].ToString() != textBox_un.Text)
                 {
                     MessageBox.Show("Tài khoản không chính xác!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -68,7 +78,7 @@ namespace SinhVien
                 {
                     MessageBox.Show("Mật khẩu không chính xác!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
-                }
+                } 
 
             }
         }
@@ -87,6 +97,22 @@ namespace SinhVien
 
             loaddata();
 
+        }
+
+        private void textBox_pw_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                button_signin_Click(sender, e);
+            }
+        }
+
+        private void textBox_un_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_signin_Click(sender, e);
+            }
         }
     }
 }
