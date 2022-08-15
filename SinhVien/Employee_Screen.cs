@@ -158,13 +158,17 @@ namespace SinhVien
         }
         private void ImportExcel(string path)
         {
+            
             using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(path)))
             {
                 ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
-                for (int i = excelWorksheet.Dimension.Start.Column; i <= excelWorksheet.Dimension.End.Column; i++)
-                {
-                    table.Columns.Add(excelWorksheet.Cells[1, i].Value.ToString());
-                }
+                DataTable dataTable = new DataTable();
+                
+                    for (int i = excelWorksheet.Dimension.Start.Column; i <= excelWorksheet.Dimension.End.Column; i++)
+                    {
+                        dataTable.Columns.Add(excelWorksheet.Cells[1, i].Value.ToString());
+                    }
+                
                 for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
                 {
                     List<string> listRows = new List<string>();
@@ -172,9 +176,9 @@ namespace SinhVien
                     {
                         listRows.Add(excelWorksheet.Cells[i, j].Value.ToString());
                     }
-                    table.Rows.Add(listRows.ToArray());
+                    dataTable.Rows.Add(listRows.ToArray());
                 }
-                dataGridView1.DataSource = table;
+                dataGridView1.DataSource = dataTable;
             }
         }
 
