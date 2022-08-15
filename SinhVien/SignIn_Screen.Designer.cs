@@ -69,6 +69,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(135, 9);
@@ -101,7 +102,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::SinhVien.Properties.Resources._0af3c9613761d2d2394d99312aeba397;
             this.pictureBox1.Image = global::SinhVien.Properties.Resources._0af3c9613761d2d2394d99312aeba397;
-            this.pictureBox1.Location = new System.Drawing.Point(129, 49);
+            this.pictureBox1.Location = new System.Drawing.Point(142, 49);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(244, 172);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

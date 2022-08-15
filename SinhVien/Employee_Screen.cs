@@ -58,7 +58,9 @@ namespace SinhVien
 
         private void ControlSV_Screen_Load(object sender, EventArgs e)
         {
-            label_Name.Text = "USERNAME : " + SignIn_Screen.getValue;
+            label_Name.ForeColor = Color.Red;
+
+            label_Name.Text = "User : " + SignIn_Screen.getValue + "\nNow : " + DateTime.Now;
 
             _connection = new SqlConnection(str);
             _connection.Open(); // mo ket noi
@@ -66,6 +68,8 @@ namespace SinhVien
             loaddata();
 
             timer1.Start();
+
+            GetHeaderText();
         }
         //Tminh
         private void label_Add_Click(object sender, EventArgs e)
@@ -320,5 +324,25 @@ namespace SinhVien
             txt_tenhs.ReadOnly = true;
 
         }
+
+        public void GetHeaderText()
+        {
+            dataGridView1.Columns[0].HeaderText = "Mã Học Sinh";
+            dataGridView1.Columns[1].HeaderText = "Họ Học Sinh";
+            dataGridView1.Columns[2].HeaderText = "Tên Học Sinh";
+            dataGridView1.Columns[3].HeaderText = "Ngày Sinh";
+            dataGridView1.Columns[4].HeaderText = "Giới Tính";
+            GetSizeColumn();
+        }
+
+        public void GetSizeColumn()
+        {
+            dataGridView1.Columns[0].Width = 100;
+            dataGridView1.Columns[1].Width = 200;
+            dataGridView1.Columns[2].Width = 150;
+            dataGridView1.Columns[3].Width = 100;
+            dataGridView1.Columns[4].Width = 120;
+        }
+
     }
 }
