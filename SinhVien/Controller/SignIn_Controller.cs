@@ -18,54 +18,48 @@ namespace SinhVien.Controller
         {
             SignIn_Screen si = new SignIn_Screen();
 
+            MessageBox.Show(si.textBox_un.Text);
+
             for (int i = 0; i < Database.Table.Rows.Count; i++)
             {
-                if (Database.Table.Rows[i]["un"].ToString() == si.textBox_un_Text && Database.Table.Rows[i]["pw"].ToString() == si.textBox_pw_Text)
+                if (Database.Table.Rows[i]["un"].ToString() == si.textBox_un.Text && Database.Table.Rows[i]["pw"].ToString() == si.textBox_pw.Text)
                 {
-                    Database.update("Accounts", "state = 'Online'", si.textBox_un_Text);
+                    Database.update("Accounts", "state = 'Online'", si.textBox_un.Text);
 
-                    SignIn_Screen.getValue = si.textBox_un_Text;
+                    SignIn_Screen.getValue = si.textBox_un.Text;
 
                     return "Đăng nhập thành công";
                     break;
                 }
-                else if (si.textBox_un_Text == "")
+                else if (si.textBox_un.Text == "")
                 {
-                    //MessageBox.Show(si.textBox_un_Text);
-                    si.get();
                     return "Tài khoản không được trống!!";
                     break;
                 }
-                else if (si.textBox_pw_Text == "")
+                else if (si.textBox_pw.Text == "")
                 {
 
                     return "Mật khẩu không được trống!!";
 
                     break;
                 }
-                else if (Database.Table.Rows[i]["un"].ToString() != si.textBox_un_Text)
-                { 
+                else if (Database.Table.Rows[i]["un"].ToString() != si.textBox_un.Text)
+                {
 
                     return "Tài khoản không chính xác!!";
 
                     break;
                 }
-                else if (Database.Table.Rows[i]["pw"].ToString() != si.textBox_pw_Text)
+                else if (Database.Table.Rows[i]["pw"].ToString() != si.textBox_pw.Text)
                 {
 
                     return "Mật khẩu không chính xác!!";
 
                     break;
-                } else
-                {
-
-                    return "Something went wrong!!";
-
                 }
-                
             }
 
-            return null;
+            return "Something went wrong!!";
         }
 
         public void openC(String tableName)

@@ -8,13 +8,15 @@ namespace SinhVien
 {
     public partial class SignIn_Screen : Form
     {
-        public String textBox_un_Text => this.textBox_un.Text;
-        public String textBox_pw_Text => this.textBox_pw.Text;
 
-        public String get()
+        public String getUN()
         {
-            MessageBox.Show(textBox_un.Text);
-            return textBox_un.Text;
+            return this.textBox_un.Text;
+        }
+
+        public String getPW()
+        {
+            return this.textBox_pw.Text;
         }
 
         SignIn_Controller siController = new SignIn_Controller();
@@ -32,12 +34,17 @@ namespace SinhVien
         {
             Employee_Screen controlSV_Screen = new Employee_Screen();
 
-            MessageBox.Show(siController.signIn(), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             if (siController.signIn() == "Đăng nhập thành công")
             {
                 Visible = false;
+
                 controlSV_Screen.Show();
+
+                MessageBox.Show(siController.signIn(), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(siController.signIn(), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

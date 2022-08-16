@@ -145,13 +145,13 @@
         #endregion
 
         private System.Windows.Forms.Button button_signin;
-        private System.Windows.Forms.TextBox textBox_pw;
-        private System.Windows.Forms.TextBox textBox_un;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.TextBox textBox_un;
+        public System.Windows.Forms.TextBox textBox_pw;
     }
 }
 
