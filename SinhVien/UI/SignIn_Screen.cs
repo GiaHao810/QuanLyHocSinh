@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using System.Data.SqlClient;
-
-using SinhVien.Controller;
-
+﻿using SinhVien.Controller;
 using SinhVien.Data;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace SinhVien
 {
     public partial class SignIn_Screen : Form
     {
+        public String textBox_un_Text => this.textBox_un.Text;
+        public String textBox_pw_Text => this.textBox_pw.Text;
 
-        public TextBox TextBox_un => this.textBox_un;
-        public TextBox TextBox_pw => this.textBox_pw;
-        public Button Button => this.button_signin;
+        public String get()
+        {
+            MessageBox.Show(textBox_un.Text);
+            return textBox_un.Text;
+        }
 
         SignIn_Controller siController = new SignIn_Controller();
 
@@ -40,7 +34,7 @@ namespace SinhVien
 
             MessageBox.Show(siController.signIn(), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if(siController.signIn() == "Đăng nhập thành công")
+            if (siController.signIn() == "Đăng nhập thành công")
             {
                 Visible = false;
                 controlSV_Screen.Show();
@@ -60,11 +54,13 @@ namespace SinhVien
             a.Clear();
 
             Database.Adapter.Fill(a);
+
+            dataGridView1.DataSource = a;
         }
 
         private void textBox_pw_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 button_signin_Click(sender, e);
             }
