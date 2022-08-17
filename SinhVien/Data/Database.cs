@@ -15,6 +15,7 @@ namespace SinhVien.Data
         private static SqlCommand _command;
         private static string str = "Data Source=LAPTOP-SKAKNRQ2;Integrated Security=True;Initial Catalog=QLSV";
         private static SqlDataAdapter adaper = new SqlDataAdapter();
+
         private static DataTable table = new DataTable();
 
         public static DataTable Table => table;
