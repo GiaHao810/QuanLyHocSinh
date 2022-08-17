@@ -15,11 +15,11 @@ namespace SinhVien.Data
         private static SqlCommand _command;
         private static string str = "Data Source=LAPTOP-SKAKNRQ2;Integrated Security=True;Initial Catalog=QLSV";
         private static SqlDataAdapter adaper = new SqlDataAdapter();
+        private static DataTable table = new DataTable();
 
         public static DataTable Table => table;
-        public static SqlDataAdapter Adapter => adaper;
 
-        private static DataTable table = new DataTable();
+        public static SqlDataAdapter Adapter => adaper;
 
         public static void loadData(String tableName)
         {
@@ -29,7 +29,7 @@ namespace SinhVien.Data
             adaper.SelectCommand = _command;
             table.Clear();
 
-            adaper.Fill(table);
+            adaper.Fill(table);            
         }
 
         public static void fillGridView(System.Windows.Forms.DataGridView dataGridView)
@@ -41,21 +41,18 @@ namespace SinhVien.Data
         {
             _command = _connection.CreateCommand();
             _command.CommandText = "UPDATE " + table + " SET " + column + " WHERE " + WHERE + "'";
-            _command.ExecuteNonQuery();
         }
 
         public static void insert(String tableName, String VALUES)
         {
             _command = _connection.CreateCommand();
             _command.CommandText = "INSERT INTO " + tableName + " VALUES " + VALUES + "'";
-            _command.ExecuteNonQuery();
         }
 
         public static void delete(String table, String WHERE)
         {
             _command = _connection.CreateCommand();
             _command.CommandText = "DELETE FROM " + table + " WHERE " + WHERE;
-            _command.ExecuteNonQuery();
         }
 
         public static void openConnection(String tableName)

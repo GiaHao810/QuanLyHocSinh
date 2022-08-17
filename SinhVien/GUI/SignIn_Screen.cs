@@ -8,18 +8,7 @@ namespace SinhVien
 {
     public partial class SignIn_Screen : Form
     {
-
-        public String getUN()
-        {
-            return this.textBox_un.Text;
-        }
-
-        public String getPW()
-        {
-            return this.textBox_pw.Text;
-        }
-
-        SignIn_Controller siController = new SignIn_Controller();
+        private SignIn_Controller siController = new SignIn_Controller();
 
         public static String getValue = "";
 
@@ -31,6 +20,8 @@ namespace SinhVien
         private void button_signin_Click(object sender, EventArgs e)
         {
             Employee_Screen controlSV_Screen = new Employee_Screen();
+
+            DataTable table = new DataTable();
 
             String str = siController.signIn();
 

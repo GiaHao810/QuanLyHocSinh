@@ -13,7 +13,7 @@ namespace SinhVien.Controller
     {
         public String signIn()
         {
-            SignIn_Screen si = new SignIn_Screen();
+            SignIn_Screen si = Application.OpenForms["SignIn_Screen"] as SignIn_Screen;
 
             for (int i = 0; i < Database.Table.Rows.Count; i++)
             {

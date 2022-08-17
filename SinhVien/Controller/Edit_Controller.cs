@@ -14,7 +14,7 @@ namespace SinhVien.Controller
         {
             Boolean check = false;
 
-            Employee_Screen ep = new Employee_Screen();
+            Employee_Screen ep = System.Windows.Forms.Application.OpenForms["Employee_Screen"] as Employee_Screen;
 
             try
             {

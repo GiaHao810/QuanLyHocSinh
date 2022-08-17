@@ -85,33 +85,33 @@
     <Compile Include="Controller\Edit_Controller.cs" />
     <Compile Include="Controller\SignIn_Controller.cs" />
     <Compile Include="Data\Database.cs" />
-    <Compile Include="UI\Employee_Screen.cs">
+    <Compile Include="GUI\Employee_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Employee_Screen.Designer.cs">
+    <Compile Include="GUI\Employee_Screen.Designer.cs">
       <DependentUpon>Employee_Screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SignIn_Screen.cs">
+    <Compile Include="GUI\SignIn_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\SignIn_Screen.Designer.cs">
+    <Compile Include="GUI\SignIn_Screen.Designer.cs">
       <DependentUpon>SignIn_Screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SignUp_Screen.cs">
+    <Compile Include="GUI\SignUp_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\SignUp_Screen.Designer.cs">
+    <Compile Include="GUI\SignUp_Screen.Designer.cs">
       <DependentUpon>SignUp_Screen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UI\Employee_Screen.resx">
+    <EmbeddedResource Include="GUI\Employee_Screen.resx">
       <DependentUpon>Employee_Screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\SignIn_Screen.resx">
+    <EmbeddedResource Include="GUI\SignIn_Screen.resx">
       <DependentUpon>SignIn_Screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\SignUp_Screen.resx">
+    <EmbeddedResource Include="GUI\SignUp_Screen.resx">
       <DependentUpon>SignUp_Screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

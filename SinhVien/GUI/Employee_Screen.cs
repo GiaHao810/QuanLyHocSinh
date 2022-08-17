@@ -33,7 +33,7 @@ namespace SinhVien
         SqlCommand _command;
         string str = "Data Source=LAPTOP-SKAKNRQ2;Integrated Security=True;Initial Catalog=QLSV";
         SqlDataAdapter adaper = new SqlDataAdapter();
-
+        
         DataTable table = new DataTable();
 
         String s;
@@ -65,7 +65,7 @@ namespace SinhVien
 
             Database.loadData("ThongTinSinhVien");
 
-            Database.fillGridView(dataGridView1);
+            Database.fillGridView(dataGridView1, table);
 
             timer1.Start();
 
@@ -93,7 +93,7 @@ namespace SinhVien
 
             Database.loadData("ThongTinSinhVien");
 
-            Database.fillGridView(dataGridView1);
+            Database.fillGridView(dataGridView1, table);
 
         }
 
@@ -145,7 +145,7 @@ namespace SinhVien
         {
             Database.loadData("ThongTinSinhVien");
 
-            Database.fillGridView(dataGridView1);
+            Database.fillGridView(dataGridView1, table);
         }
 
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
@@ -270,7 +270,7 @@ namespace SinhVien
 
             Database.loadData("ThongTinSinhVien");
 
-            Database.fillGridView(dataGridView1);
+            Database.fillGridView(dataGridView1, table);
 
             button_Confirm2.Visible = false;
             button_Confirm.Visible = false;
