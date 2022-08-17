@@ -54,6 +54,8 @@ namespace SinhVien
         {
             label_Name.ForeColor = Color.Red;
 
+            Database.openConnection();
+
             Database.loadData("ThongTinSinhVien");
 
             Database.fillGridView(dataGridView1);

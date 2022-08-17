@@ -29,6 +29,8 @@ namespace SinhVien
 
                 controlSV_Screen.Show();
 
+                Database.Table.Clear();
+
                 //MessageBox.Show(str, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
