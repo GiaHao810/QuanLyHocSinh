@@ -82,6 +82,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Edit_Controller.cs" />
     <Compile Include="Controller\SignIn_Controller.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="UI\Employee_Screen.cs">

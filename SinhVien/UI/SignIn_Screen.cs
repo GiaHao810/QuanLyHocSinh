@@ -21,8 +21,6 @@ namespace SinhVien
 
         SignIn_Controller siController = new SignIn_Controller();
 
-        DataTable a = new DataTable();
-
         public static String getValue = "";
 
         public SignIn_Screen()
@@ -34,17 +32,19 @@ namespace SinhVien
         {
             Employee_Screen controlSV_Screen = new Employee_Screen();
 
-            if (siController.signIn() == "Đăng nhập thành công")
+            String str = siController.signIn();
+
+            if (str == "Đăng nhập thành công")
             {
                 Visible = false;
 
                 controlSV_Screen.Show();
 
-                MessageBox.Show(siController.signIn(), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(str, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show(siController.signIn(), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(str, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -58,11 +58,6 @@ namespace SinhVien
         private void SignIn_Screen_Load(object sender, EventArgs e)
         {
             siController.openC("Accounts");
-            a.Clear();
-
-            Database.Adapter.Fill(a);
-
-            dataGridView1.DataSource = a;
         }
 
         private void textBox_pw_KeyDown(object sender, KeyEventArgs e)

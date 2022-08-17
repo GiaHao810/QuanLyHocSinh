@@ -18,8 +18,6 @@ namespace SinhVien.Controller
         {
             SignIn_Screen si = new SignIn_Screen();
 
-            MessageBox.Show(si.textBox_un.Text);
-
             for (int i = 0; i < Database.Table.Rows.Count; i++)
             {
                 if (Database.Table.Rows[i]["un"].ToString() == si.textBox_un.Text && Database.Table.Rows[i]["pw"].ToString() == si.textBox_pw.Text)
