@@ -5,10 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SinhVien.Data;
 
-
 using System.Windows.Forms;
-
-
 
 namespace SinhVien.Controller
 {
@@ -31,8 +28,8 @@ namespace SinhVien.Controller
                 }
                 else if (si.textBox_un.Text == "")
                 {
-                    return "Tài khoản không được trống!!";
-                    break;
+                   return "Tài khoản không được trống!!";
+                   break;
                 }
                 else if (si.textBox_pw.Text == "")
                 {
