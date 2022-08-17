@@ -11,7 +11,7 @@ namespace SinhVien.Data
 {
     internal class Database
     {
-        private static SqlConnection _connection = null;
+        private static SqlConnection _connection;
         private static SqlCommand _command;
         private static string str = "Data Source=LAPTOP-SKAKNRQ2;Integrated Security=True;Initial Catalog=QLSV";
         private static SqlDataAdapter adaper = new SqlDataAdapter();
@@ -25,11 +25,20 @@ namespace SinhVien.Data
         {
             _command = _connection.CreateCommand();
             _command.CommandText = "SELECT * FROM " + tableName;
-            _command.ExecuteNonQuery();
             adaper.SelectCommand = _command;
             table.Clear();
 
             adaper.Fill(table);            
+        }
+
+        public static void loadData(String tableName, String WHERE, String LIKE)
+        {
+            _command = _connection.CreateCommand();
+            _command.CommandText = "SELECT * FROM " + tableName + " WHERE " + WHERE + " LIKE " + LIKE;
+            adaper.SelectCommand = _command;
+            table.Clear();
+
+            adaper.Fill(table);
         }
 
         public static void fillGridView(System.Windows.Forms.DataGridView dataGridView)
@@ -55,12 +64,20 @@ namespace SinhVien.Data
             _command.CommandText = "DELETE FROM " + table + " WHERE " + WHERE;
         }
 
-        public static void openConnection(String tableName)
+        public static int count(String tableName, String VALUE)
+        {
+            _command = _connection.CreateCommand();
+            _command.CommandText = "SELECT COUNT " + VALUE + " FROM " + tableName;
+            _command.ExecuteNonQuery();
+            Int32 count = (Int32)_command.ExecuteScalar();
+
+            return count;
+        }
+
+        public static void openConnection()
         {
             _connection = new SqlConnection(str);
             _connection.Open(); // mo ket noi
-
-            loadData(tableName);
         }
     }
 }

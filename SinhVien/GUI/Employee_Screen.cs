@@ -21,7 +21,6 @@ namespace SinhVien
 {
     public partial class Employee_Screen : Form
     {
-
         public DataGridView dataGridView => this.dataGridView1;
         public TextBox txt_ID => this.txt_id;
         public TextBox txt_HO => this.txt_ho;
@@ -29,11 +28,6 @@ namespace SinhVien
         public DateTimePicker dtp_NS => this.dtp_ngaySinh;
         public ComboBox cb_GT => this.cb_gioitinh;
 
-        SqlConnection _connection;
-        SqlCommand _command;
-        string str = "Data Source=LAPTOP-SKAKNRQ2;Integrated Security=True;Initial Catalog=QLSV";
-        SqlDataAdapter adaper = new SqlDataAdapter();
-        
         DataTable table = new DataTable();
 
         String s;
@@ -51,21 +45,18 @@ namespace SinhVien
             var minute = DateTime.Now.Minute;
             var second = DateTime.Now.Second;
 
+            label_Name.Text = "User : " + SignIn_Screen.getValue + "\nNow : " + hour + ":" + minute + ":" + second;
+
             Text = "Chương trình quản lý học sinh  #  " + hour + " : " + minute + " : " + second;
         }
 
-        private void ControlSV_Screen_Load(object sender, EventArgs e)
+        private void Employee_Screen_Load(object sender, EventArgs e)
         {
             label_Name.ForeColor = Color.Red;
 
-            label_Name.Text = "User : " + SignIn_Screen.getValue + "\nNow : " + DateTime.Now;
-
-            _connection = new SqlConnection(str);
-            _connection.Open(); // mo ket noi
-
             Database.loadData("ThongTinSinhVien");
 
-            Database.fillGridView(dataGridView1, table);
+            Database.fillGridView(dataGridView1);
 
             timer1.Start();
 
@@ -83,17 +74,13 @@ namespace SinhVien
 
         private void label_Delete_Click(object sender, EventArgs e)
         {
-            _command = _connection.CreateCommand();
-            _command.CommandText = "DELETE FROM ThongTinSinhVien WHERE MaHS = '" + txt_id.Text + "'";
-            _command.ExecuteNonQuery();
-
             Database.delete("ThongTinSinhVien", "MaHS = " + txt_id.Text + "'");
 
             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             Database.loadData("ThongTinSinhVien");
 
-            Database.fillGridView(dataGridView1, table);
+            Database.fillGridView(dataGridView1);
 
         }
 
@@ -124,28 +111,18 @@ namespace SinhVien
             application.ActiveWorkbook.Saved = true;
         }
 
-        public void loadGrid()
-        {
-            _command = _connection.CreateCommand();
-            _command.CommandText = "select * from ThongTinSinhVien where TenSV like '%" + txt_nhapten.Text + "%'";
-            adaper.SelectCommand = _command;
-            table.Clear();
-
-            adaper.Fill(table);
-            dataGridView1.DataSource = table;
-
-        }
-
         private void btn_timKiem_Click(object sender, EventArgs e)
         {
-            loadGrid();
+            Database.loadData("ThongTinSinhVien", "TenSV", "'%" + txt_nhapten.Text + "%'");
+
+            Database.fillGridView(dataGridView1);
         }
 
         private void btn_hienthiSV_Click(object sender, EventArgs e)
         {
             Database.loadData("ThongTinSinhVien");
 
-            Database.fillGridView(dataGridView1, table);
+            Database.fillGridView(dataGridView1);
         }
 
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
@@ -163,6 +140,7 @@ namespace SinhVien
                 }
                 catch (Exception ex)
                 {
+                    ex.ToString();
                     MessageBox.Show("Nhập file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -208,6 +186,7 @@ namespace SinhVien
                 }
                 catch (Exception ex)
                 {
+                    ex.ToString();
                     MessageBox.Show("Xuất file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -250,6 +229,8 @@ namespace SinhVien
             if(str == "Mã Học Sinh không được trùng")
             {
                 MessageBox.Show("Mã Học Sinh không được trùng", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                GetHeaderText();
             } else if(str == "1")
             {
 
@@ -270,7 +251,7 @@ namespace SinhVien
 
             Database.loadData("ThongTinSinhVien");
 
-            Database.fillGridView(dataGridView1, table);
+            Database.fillGridView(dataGridView1);
 
             button_Confirm2.Visible = false;
             button_Confirm.Visible = false;
@@ -283,11 +264,7 @@ namespace SinhVien
 
         private void label3_Click(object sender, EventArgs e)
         {
-
-            _command = _connection.CreateCommand();
-            _command.CommandText = "SELECT COUNT (MaHS) FROM [ThongTinSinhVien] ";
-            _command.ExecuteNonQuery();
-            Int32 count = (Int32)_command.ExecuteScalar();
+            int count = Database.count("ThongTinSinhVien", "MaHS");
 
             MessageBox.Show("Tong So Sinh Vien " + count);
         }
@@ -309,10 +286,10 @@ namespace SinhVien
             dataGridView1.Columns[2].HeaderText = "Tên Học Sinh";
             dataGridView1.Columns[3].HeaderText = "Ngày Sinh";
             dataGridView1.Columns[4].HeaderText = "Giới Tính";
-            GetSizeColumn();
+            SetSizeColumn();
         }
 
-        public void GetSizeColumn()
+        public void SetSizeColumn()
         {
             dataGridView1.Columns[0].Width = 100;
             dataGridView1.Columns[1].Width = 200;
@@ -321,5 +298,12 @@ namespace SinhVien
             dataGridView1.Columns[4].Width = 120;
         }
 
+        private void txt_nhapten_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btn_timKiem_Click(sender, e);
+            }
+        }
     }
 }

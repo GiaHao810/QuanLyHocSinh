@@ -25,7 +25,9 @@ namespace SinhVien.Controller
 
                         return "Mã Học Sinh không được trùng";
 
+#pragma warning disable CS0162 // Unreachable code detected
                         check = false;
+#pragma warning restore CS0162 // Unreachable code detected
 
                         break;
                     }

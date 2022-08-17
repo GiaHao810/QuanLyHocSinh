@@ -23,13 +23,17 @@ namespace SinhVien.Controller
 
                     SignIn_Screen.getValue = si.textBox_un.Text;
 
+                    Database.Table.Clear();
+
                     return "Đăng nhập thành công";
+#pragma warning disable CS0162 // Unreachable code detected
                     break;
+
                 }
                 else if (si.textBox_un.Text == "")
                 {
-                   return "Tài khoản không được trống!!";
-                   break;
+                    return "Tài khoản không được trống!!";
+                    break;
                 }
                 else if (si.textBox_pw.Text == "")
                 {
@@ -51,15 +55,21 @@ namespace SinhVien.Controller
                     return "Mật khẩu không chính xác!!";
 
                     break;
+#pragma warning restore CS0162 // Unreachable code detected
                 }
             }
 
             return "Something went wrong!!";
         }
 
-        public void openC(String tableName)
+        public void openC()
         {
-            Database.openConnection(tableName);
+            Database.openConnection();
+        }
+
+        public void loadData(String tableName)
+        {
+            Database.loadData(tableName);
         }
     }
 }
