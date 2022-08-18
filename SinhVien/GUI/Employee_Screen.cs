@@ -196,7 +196,7 @@ namespace SinhVien
 
         private void label_so_Click(object sender, EventArgs e)
         {
-            Database.update("Accounts", "state = 'Offline'", SignIn_Screen.getValue);
+            Database.update("Accounts", "state = 'Offline'", SignIn_Screen.getValue, "V");
 
             Application.Exit();
         }
@@ -249,7 +249,7 @@ namespace SinhVien
 
         private void button_Confirm2_Click(object sender, EventArgs e)
         {
-            Database.update("ThongTinhSinhVien", "HoSV = '" + txt_ho.Text + "', TenSV = '" + txt_tenhs.Text + "', Ngaysinh = '" + dtp_ngaySinh.Value + "', GioiTinh = '" + cb_gioitinh.Text + "'", "MaHS = '" + txt_id.Text + "'");
+            Database.update("ThongTinhSinhVien", "HoSV = '" + txt_ho.Text + "', TenSV = '" + txt_tenhs.Text + "', Ngaysinh = '" + dtp_ngaySinh.Value + "', GioiTinh = '" + cb_gioitinh.Text + "'", "MaHS = '" + txt_id.Text + "'", "L");
 
             Database.loadData("ThongTinSinhVien");
 

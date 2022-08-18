@@ -47,10 +47,12 @@ namespace SinhVien.Data
             dataGridView.DataSource = table;
         }
 
-        public static void update(String tableName, String VALUES, String WHERE)
+        public static void update(String tableName, String VALUES, String WHERE, String MaHS)
         {
             _command = _connection.CreateCommand();
             _command.CommandText = "UPDATE " + tableName + " SET " + VALUES + " WHERE " + WHERE;
+            //_command.CommandText = "Insert into ThongTinSinhVien ( MaHS , HoSV, TenSV, Ngaysinh, GioiTinh) Values ('" + MaHS + " ' , 'B' , 'C' , '03/03/2000' , 'Nam')";
+            _command.ExecuteNonQuery();
         }
 
         public static void update(String tableName, String VALUES)
@@ -63,7 +65,7 @@ namespace SinhVien.Data
         public static void insert(String tableName, String VALUES)
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "INSERT INTO " + tableName + " VALUES " + VALUES;
+            _command.CommandText = "INSERT INTO " + tableName + " VALUES " + VALUES + ";";
         }
 
         public static void delete(String table, String WHERE)

@@ -19,7 +19,7 @@ namespace SinhVien.Controller
             {
                 if (Database.Table.Rows[i]["un"].ToString() == si.textBox_un.Text && Database.Table.Rows[i]["pw"].ToString() == si.textBox_pw.Text)
                 {
-                    Database.update("Accounts", "state = 'Online'", si.textBox_un.Text);
+                    Database.update("Accounts", "state = 'Online'", si.textBox_un.Text, "L");
 
                     SignIn_Screen.getValue = si.textBox_un.Text;
 
