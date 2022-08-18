@@ -47,17 +47,23 @@ namespace SinhVien.Data
             dataGridView.DataSource = table;
         }
 
-        public static void update(String table, String column, String WHERE)
+        public static void update(String tableName, String VALUES, String WHERE)
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "UPDATE " + table + " SET " + column + " WHERE " + WHERE + "'";
+            _command.CommandText = "UPDATE " + tableName + " SET " + VALUES + " WHERE " + WHERE;
+        }
+
+        public static void update(String tableName, String VALUES)
+        {
+            _command = _connection.CreateCommand();
+            _command.CommandText = "UPDATE " + tableName + " SET " + VALUES;
+            _command.ExecuteNonQuery();
         }
 
         public static void insert(String tableName, String VALUES)
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "INSERT INTO " + tableName + " VALUES " + VALUES + "';";
-            _command.ExecuteNonQuery();
+            _command.CommandText = "INSERT INTO " + tableName + " VALUES " + VALUES;
         }
 
         public static void delete(String table, String WHERE)
