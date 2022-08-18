@@ -56,13 +56,15 @@ namespace SinhVien.Data
         public static void insert(String tableName, String VALUES)
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "INSERT INTO " + tableName + " VALUES " + VALUES + "'";
+            _command.CommandText = "INSERT INTO " + tableName + " VALUES " + VALUES + "';";
+            _command.ExecuteNonQuery();
         }
 
         public static void delete(String table, String WHERE)
         {
             _command = _connection.CreateCommand();
-            _command.CommandText = "DELETE FROM " + table + " WHERE " + WHERE;
+            _command.CommandText = "DELETE FROM " + table + " WHERE " + WHERE + ";";
+            _command.ExecuteNonQuery();
         }
 
         public static int count(String tableName, String VALUE)

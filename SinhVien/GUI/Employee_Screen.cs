@@ -46,14 +46,12 @@ namespace SinhVien
             var second = DateTime.Now.Second;
 
             label_Name.Text = "User : " + SignIn_Screen.getValue + "\nNow : " + hour + ":" + minute + ":" + second;
-
-            Text = "Chương trình quản lý học sinh  #  " + hour + " : " + minute + " : " + second;
         }
 
         private void Employee_Screen_Load(object sender, EventArgs e)
         {
             label_Name.ForeColor = Color.Red;
-
+            Text = "CHƯƠNG TRÌNH QUẢN LÝ HỌC SINH";
             Database.Table.Columns.RemoveAt(0);
             Database.Table.Columns.RemoveAt(1);
             Database.Table.Columns.RemoveAt(0);
@@ -78,7 +76,7 @@ namespace SinhVien
 
         private void label_Delete_Click(object sender, EventArgs e)
         {
-            Database.delete("ThongTinSinhVien", "MaHS = " + txt_id.Text + "'");
+            Database.delete("ThongTinSinhVien", "MaHS = '" + txt_id.Text + "'");
 
             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
