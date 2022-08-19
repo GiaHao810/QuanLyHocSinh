@@ -169,6 +169,7 @@
             this.txt_nhapten.Name = "txt_nhapten";
             this.txt_nhapten.Size = new System.Drawing.Size(231, 23);
             this.txt_nhapten.TabIndex = 21;
+            this.txt_nhapten.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_nhapten_KeyDown);
             // 
             // label4
             // 
@@ -227,11 +228,11 @@
             // label_Name
             // 
             this.label_Name.AutoSize = true;
-            this.label_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Name.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label_Name.Location = new System.Drawing.Point(8, 43);
             this.label_Name.Name = "label_Name";
-            this.label_Name.Size = new System.Drawing.Size(47, 20);
+            this.label_Name.Size = new System.Drawing.Size(40, 16);
             this.label_Name.TabIndex = 25;
             this.label_Name.Text = "User";
             // 
@@ -325,6 +326,7 @@
             this.dtp_ngaySinh.Name = "dtp_ngaySinh";
             this.dtp_ngaySinh.Size = new System.Drawing.Size(198, 20);
             this.dtp_ngaySinh.TabIndex = 2;
+            this.dtp_ngaySinh.Value = new System.DateTime(2001, 9, 11, 0, 0, 0, 0);
             // 
             // txt_tenhs
             // 
@@ -410,7 +412,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Employee_Screen";
-            this.Load += new System.EventHandler(this.ControlSV_Screen_Load);
+            this.Load += new System.EventHandler(this.Employee_Screen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);

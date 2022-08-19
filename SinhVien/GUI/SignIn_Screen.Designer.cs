@@ -102,7 +102,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::SinhVien.Properties.Resources._0af3c9613761d2d2394d99312aeba397;
             this.pictureBox1.Image = global::SinhVien.Properties.Resources._0af3c9613761d2d2394d99312aeba397;
-            this.pictureBox1.Location = new System.Drawing.Point(142, 49);
+            this.pictureBox1.Location = new System.Drawing.Point(119, 58);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(244, 172);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,12 +133,12 @@
         #endregion
 
         private System.Windows.Forms.Button button_signin;
-        private System.Windows.Forms.TextBox textBox_pw;
-        private System.Windows.Forms.TextBox textBox_un;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.TextBox textBox_un;
+        public System.Windows.Forms.TextBox textBox_pw;
     }
 }
 
